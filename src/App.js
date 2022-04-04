@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './routes/home/home.component';
 import AppContext from './services/context';
 import globalData from './services/globalData';
-import NavBar from './components/nav-bar/nav-bar.component';
+import NavBar from './routes/nav-bar/nav-bar.component';
 
 function NotFound() {
   return (
