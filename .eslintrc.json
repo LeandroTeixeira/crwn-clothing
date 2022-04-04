@@ -17,6 +17,9 @@
     "plugins": [
         "react"
     ],
+    "rules" : {
+      "no-unused-vars":"warn"
+    },
     "overrides": [
       {
         "files":["**/*.test.js", "App.js","index.js"],
