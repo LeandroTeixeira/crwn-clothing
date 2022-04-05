@@ -18,7 +18,8 @@
         "react"
     ],
     "rules" : {
-      "no-unused-vars":"warn"
+      "no-unused-vars":"warn",
+      "react/button-has-type":"off"
     },
     "overrides": [
       {

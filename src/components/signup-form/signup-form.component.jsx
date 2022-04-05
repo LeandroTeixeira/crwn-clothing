@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import './signup-form.style.scss';
 import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from '../../services/firebase.utils';
+import './signup-form.style.scss';
+import FormInput from '../form-input/form-input.component';
+import Button from '../button/button.component';
 
 const defaultFormFields = {
   displayName: '',
@@ -16,28 +18,28 @@ function validateFields({
 }) {
   const validateName = displayName.length >= 5;
   if (!validateName) {
-    warnMessage = 'The display name must have at least 5 characters';
+    warnMessage = 'Error: The display name must have at least 5 characters';
     return true;
   }
 
   const validateEmail = email.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/);
 
   if (!validateEmail) {
-    warnMessage = 'Invalid Email';
+    warnMessage = 'Error: Invalid Email';
     return true;
   }
 
   const validatePassword = password.length >= 6;
   if (!validatePassword) {
-    warnMessage = 'The password must have at least 6 characters';
+    warnMessage = 'Error: The password must have at least 6 characters';
     return true;
   }
   const validateConfirm = password === confirmPassword;
   if (!validateConfirm) {
-    warnMessage = 'The passwords must match';
+    warnMessage = 'Error: The passwords must match';
     return true;
   }
-  warnMessage = 'all fields are clear';
+  warnMessage = 'All fields are clear';
   return false;
 }
 
@@ -71,55 +73,44 @@ export default function SignupForm() {
   };
 
   return (
-    <div>
-      <h1> Sign Up with Email and Password</h1>
-      <form
-        onSubmit={handleSubmit}
-      >
-        <label htmlFor="displayName">
-          Display Name
-          <input
-            type="text"
-            name="displayName"
-            onChange={handleChange}
-            value={displayName}
-            required
-          />
-        </label>
-        <label htmlFor="email">
-          Email
-          <input
-            type="text"
-            name="email"
-            onChange={handleChange}
-            value={email}
-            required
-          />
-        </label>
-        <label htmlFor="password">
-          Password
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <label htmlFor="confirmPassword">
-          Confirm Password
-          <input
-            type="password"
-            name="confirmPassword"
-            value={confirmPassword}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <button type="submit" disabled={validateFields(formFields)}>Sign Up</button>
-        {warnMessage}
-      </form>
+    <div className="sign-up-container">
+      <h2> Don&#39;t have an account ? </h2>
+      <span> Sign Up with Email and Password</span>
+      <form onSubmit={handleSubmit}>
+        <FormInput
+          label="Display Name"
+          type="text"
+          name="displayName"
+          handleChange={handleChange}
+          value={displayName}
+        />
+        <FormInput
+          label="Email"
+          type="text"
+          name="email"
+          handleChange={handleChange}
+          value={email}
+        />
+        <FormInput
+          label="Password"
+          type="password"
+          name="password"
+          handleChange={handleChange}
+          value={password}
+        />
 
+        <FormInput
+          label="Confirm Password"
+          type="password"
+          name="confirmPassword"
+          handleChange={handleChange}
+          value={confirmPassword}
+        />
+        <div className={` message ${warnMessage.match(/Error/) ? 'error' : 'success'} `}>{warnMessage}</div>
+        <Button type="submit" disabled={validateFields(formFields)}>
+          Sign Up
+        </Button>
+      </form>
     </div>
   );
 }
