@@ -11,7 +11,7 @@ export default function SignIn() {
     const getData = async () => {
       const response = await getRedirectResult(auth);
       if (response) {
-        const userDocRef = await createUserDocumentFromAuth(response.user);
+        const userDocRef = await createUserDocumentFromAuth(response);
       }
     };
     getData();
