@@ -4,7 +4,7 @@ import Home from './routes/home/home.component';
 import AppContext from './services/context';
 import globalData from './services/globalData';
 import NavBar from './routes/nav-bar/nav-bar.component';
-import SignIn from './routes/sign-in/sign-in.component';
+import Authentication from './routes/authentication/authentication.component';
 
 function NotFound() {
   return (
@@ -20,7 +20,7 @@ function App() {
       <Routes>
         <Route path="/" element={<NavBar />}>
           <Route index element={<Home />} />
-          <Route path="sign-in" element={<SignIn />} />
+          <Route path="auth" element={<Authentication />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
