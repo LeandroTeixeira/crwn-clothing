@@ -6,13 +6,16 @@ import {
 } from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Provider } from './services/contexts';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <Provider>
+        <App />
+      </Provider>
     </BrowserRouter>
   </React.StrictMode>,
 );

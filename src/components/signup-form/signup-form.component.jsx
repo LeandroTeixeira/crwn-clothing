@@ -12,6 +12,7 @@ const defaultFormFields = {
 };
 
 let warnMessage = '';
+let successMessage = '';
 
 function validateFields({
   displayName, email, password, confirmPassword,
@@ -62,10 +63,11 @@ export default function SignupForm() {
         if (response) {
           createUserDocumentFromAuth(response.user, { displayName });
         }
+        successMessage = 'User succesfully created';
       } catch (error) {
         if (error.code === 'auth/email-already-in-use') {
-          warnMessage = 'Cannot create user. Email already in use';
-        } else { warnMessage = error; }
+          successMessage = 'Error: Cannot create user. Email already in use';
+        } else { warnMessage = `Error: ${error}`; }
       } finally {
         setFormFields(defaultFormFields);
       }
@@ -106,7 +108,20 @@ export default function SignupForm() {
           handleChange={handleChange}
           value={confirmPassword}
         />
-        <div className={` message ${warnMessage.match(/Error/) ? 'error' : 'success'} `}>{warnMessage}</div>
+        <div
+          className={` message ${
+            warnMessage.match(/Error/) ? 'error' : 'success'
+          } `}
+        >
+          {warnMessage}
+        </div>
+        <div
+          className={` message ${
+            successMessage.match(/Error/) ? 'error' : 'success'
+          } `}
+        >
+          {successMessage}
+        </div>
         <Button type="submit" disabled={validateFields(formFields)}>
           Sign Up
         </Button>
