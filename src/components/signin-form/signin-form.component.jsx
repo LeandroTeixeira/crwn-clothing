@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react';
 import {
-  createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth, signInAuthUserWithEmailAndPassword, signInWithGooglePopup,
 } from '../../services/firebase.utils';
 import './signin-form.styles.scss';
@@ -21,9 +20,11 @@ export default function SigninForm() {
   const { setCurrentUser } = useContext(UserContext);
 
   const signInWithGoogle = async () => {
-    const { user } = await signInWithGooglePopup();
-    const userDocRef = await createUserDocumentFromAuth(user);
-    setCurrentUser(userDocRef);
+    const response = await signInWithGooglePopup();
+    if (response) {
+      await createUserDocumentFromAuth(response.user);
+      setCurrentUser(response.user);
+    }
   };
 
   const handleChange = ({ target }) => {
@@ -36,8 +37,8 @@ export default function SigninForm() {
     try {
       const response = await signInAuthUserWithEmailAndPassword(email, password);
       if (response) {
+        createUserDocumentFromAuth(response.user);
         setCurrentUser(response.user);
-        // createUserDocumentFromAuth(response.user, { displayName });
       }
     } catch (error) {
       console.log(error);
