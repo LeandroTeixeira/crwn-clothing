@@ -12,7 +12,7 @@ export default function Authentication() {
     const getData = async () => {
       const response = await getRedirectResult(auth);
       if (response) {
-        const userDocRef = await createUserDocumentFromAuth(response);
+        await createUserDocumentFromAuth(response);
       }
     };
     getData();

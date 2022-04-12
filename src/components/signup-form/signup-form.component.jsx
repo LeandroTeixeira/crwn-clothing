@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from '../../services/firebase.utils';
 import './signup-form.styles.scss';
 import FormInput from '../form-input/form-input.component';
 import Button from '../button/button.component';
-// import { UserContext } from '../../services/contexts';
 
 const defaultFormFields = {
   displayName: '',
@@ -51,6 +50,10 @@ export default function SignupForm() {
     displayName, email, password, confirmPassword,
   } = formFields;
 
+  useEffect(() => {
+    warnMessage = '';
+    successMessage = '';
+  }, []);
   // const { setCurrentUser } = useContext(UserContext);
 
   const handleChange = ({ target }) => {
@@ -64,7 +67,7 @@ export default function SignupForm() {
       try {
         const response = await createAuthUserWithEmailAndPassword(email, password);
         if (response) {
-          await createUserDocumentFromAuth(response.user, { displayName });
+          await createUserDocumentFromAuth(response.user, { displayName, password });
           // setCurrentUser(response.user);
           successMessage = 'User succesfully created';
         }
