@@ -1,22 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import './authentication.style.scss';
-import { getRedirectResult } from 'firebase/auth';
-import {
-  auth, createUserDocumentFromAuth,
-} from '../../services/firebase.utils';
+import { useNavigate } from 'react-router-dom';
 import SignupForm from '../../components/signup-form/signup-form.component';
 import SigninForm from '../../components/signin-form/signin-form.component';
+import { UserContext } from '../../services/contexts';
 
 export default function Authentication() {
-  useEffect(() => {
-    const getData = async () => {
-      const response = await getRedirectResult(auth);
-      if (response) {
-        await createUserDocumentFromAuth(response);
-      }
-    };
-    getData();
-  }, []);
+  const { currentUser } = useContext(UserContext);
 
   return (
     <div className="authentication-container">

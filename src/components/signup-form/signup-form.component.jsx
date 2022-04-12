@@ -68,7 +68,6 @@ export default function SignupForm() {
         const response = await createAuthUserWithEmailAndPassword(email, password);
         if (response) {
           await createUserDocumentFromAuth(response.user, { displayName, password });
-          // setCurrentUser(response.user);
           successMessage = 'User succesfully created';
         }
       } catch (error) {

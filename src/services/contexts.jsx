@@ -3,7 +3,7 @@ import React, {
   createContext, useMemo, useState, useEffect,
 } from 'react';
 import globalData from './globalData';
-import { onAuthStateChangeListener } from './firebase.utils';
+import { createUserDocumentFromAuth, onAuthStateChangeListener } from './firebase.utils';
 
 export const GlobalContext = createContext('');
 
@@ -18,7 +18,8 @@ export function Provider({ children }) {
   const [currentUser, setCurrentUser] = useState(null);
   // Definition of the auth listener and setting the unsubscribe function to run at unmount
   useEffect(() => {
-    const unsubscribe = onAuthStateChangeListener((user) => {
+    const unsubscribe = onAuthStateChangeListener(async (user) => {
+      if (user) { await createUserDocumentFromAuth(user); }
       setCurrentUser(user);
     });
     return unsubscribe;
