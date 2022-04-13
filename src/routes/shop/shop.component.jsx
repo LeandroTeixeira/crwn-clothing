@@ -1,5 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ShopContext } from '../../services/contexts';
 
 export default function Shop() {
-  return <h1>Shop</h1>;
+  const { products } = useContext(ShopContext);
+  return (
+    <>
+      <h1>Shop</h1>
+      {products.map(({
+        id, name, price, imageUrl,
+      }) => (
+        <div key={id}>
+          <h2>{name}</h2>
+          <img src={imageUrl} alt="product" />
+          <p>
+            Price:
+            {price}
+          </p>
+        </div>
+      ))}
+    </>
+  );
 }

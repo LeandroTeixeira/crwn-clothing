@@ -3,6 +3,7 @@ import React, {
   createContext, useMemo, useState, useEffect,
 } from 'react';
 import globalData from './globalData';
+import shopData from './shopData.json';
 import { createUserDocumentFromAuth, onAuthStateChangeListener } from './firebase.utils';
 
 export const GlobalContext = createContext('');
@@ -10,6 +11,10 @@ export const GlobalContext = createContext('');
 export const UserContext = createContext({
   currentUser: null,
   setCurrentUser: () => null,
+});
+
+export const ShopContext = createContext({
+  products: [],
 });
 
 // Provider used, combines all contexts into a single provider.
@@ -25,10 +30,6 @@ export function Provider({ children }) {
     return unsubscribe;
   }, []);
 
-  const globalContextData = useMemo(
-    () => ({ ...globalData }),
-    [globalData],
-  );
   const userContextData = useMemo(
     () => ({
       currentUser,
@@ -36,11 +37,24 @@ export function Provider({ children }) {
     }),
     [currentUser, setCurrentUser],
   );
+
+  // Data for Global Context
+  const globalContextData = useMemo(
+    () => ({ ...globalData }),
+    [globalData],
+  );
+
+  const shopContextData = useMemo(
+    () => ({ products: shopData }),
+    [shopData],
+  );
   return (
     <GlobalContext.Provider value={globalContextData}>
-      <UserContext.Provider value={userContextData}>
-        {children}
-      </UserContext.Provider>
+      <ShopContext.Provider value={shopContextData}>
+        <UserContext.Provider value={userContextData}>
+          {children}
+        </UserContext.Provider>
+      </ShopContext.Provider>
     </GlobalContext.Provider>
   );
 }
