@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import './authentication.style.scss';
+import './authentication.styles.scss';
 import { useNavigate } from 'react-router-dom';
 import SignupForm from '../../components/signup-form/signup-form.component';
 import SigninForm from '../../components/signin-form/signin-form.component';

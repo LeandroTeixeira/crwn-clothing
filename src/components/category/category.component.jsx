@@ -1,4 +1,4 @@
-import './category.style.scss';
+import './category.styles.scss';
 import React from 'react';
 import { arrayOf, object } from 'prop-types';
 import CategoryItem from '../category-item/category-item.component';

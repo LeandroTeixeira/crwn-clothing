@@ -31,6 +31,7 @@ export default function SigninForm() {
     try {
       await signInAuthUserWithEmailAndPassword(email, password);
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.log(error);
     } finally {
       setFormFields(defaultFormFields);

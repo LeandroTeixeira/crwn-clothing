@@ -1,4 +1,4 @@
-import './product-card.style.scss';
+import './product-card.styles.scss';
 import React from 'react';
 import { string } from 'prop-types';
 import Button from '../button/button.component';

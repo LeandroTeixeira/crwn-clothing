@@ -1,4 +1,4 @@
-import './nav-bar.style.scss';
+import './nav-bar.styles.scss';
 import React, { useContext } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { ReactComponent as CrownLogo } from '../../assets/crown.svg';
