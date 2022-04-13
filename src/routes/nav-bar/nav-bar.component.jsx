@@ -2,12 +2,15 @@ import './nav-bar.styles.scss';
 import React, { useContext } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { ReactComponent as CrownLogo } from '../../assets/crown.svg';
-import { UserContext } from '../../services/contexts';
+import { GlobalContext, UserContext } from '../../services/contexts';
 import { signOutUser } from '../../services/firebase.utils';
 import CartIcon from '../../components/cart-icon/cart-icon.component';
+import CartDropdown from '../../components/cart-dropdown/cart-dropdown.component';
 
 export default function NavBar() {
   const { currentUser } = useContext(UserContext);
+  const { dropdownIsOpen } = useContext(GlobalContext);
+
   const handleSignOut = async () => {
     await signOutUser();
   };
@@ -34,6 +37,7 @@ export default function NavBar() {
           )}
           <CartIcon />
         </div>
+        {dropdownIsOpen && <CartDropdown />}
       </div>
       <Outlet />
     </>

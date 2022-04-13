@@ -19,7 +19,17 @@ const setUserContextData = () => ({
 });
 
 // Data for Global Context
-const setGlobalContextData = () => ({ ...globalData });
+let [dropdownIsOpen, setDropdownIsOpen] = [false, () => null];
+const toggleDropdown = () => {
+  setDropdownIsOpen(!dropdownIsOpen);
+};
+
+const setGlobalContextData = () => ({
+  ...globalData,
+  dropdownIsOpen,
+  setDropdownIsOpen,
+  toggleDropdown,
+});
 
 // Data for Shop Context
 let [products, setProducts] = [null, () => null];
@@ -49,20 +59,24 @@ export default function Provider({ children }) {
     [currentUser, setCurrentUser],
   );
   // Data for Global Context
-  const globalContextData = useMemo(setGlobalContextData, [globalData]);
+  [dropdownIsOpen, setDropdownIsOpen] = useState(false);
+  const globalContextData = useMemo(
+    setGlobalContextData,
+    [globalData, dropdownIsOpen, setDropdownIsOpen, toggleDropdown],
+  );
 
   // Data for Shop Context
   [products, setProducts] = useState(shopData);
   const shopContextData = useMemo(setShopContextData, [products, setProducts]);
 
   return (
-    <GlobalContext.Provider value={globalContextData}>
-      <UserContext.Provider value={userContextData}>
-        <ShopContext.Provider value={shopContextData}>
+    <UserContext.Provider value={userContextData}>
+      <ShopContext.Provider value={shopContextData}>
+        <GlobalContext.Provider value={globalContextData}>
           {children}
-        </ShopContext.Provider>
-      </UserContext.Provider>
-    </GlobalContext.Provider>
+        </GlobalContext.Provider>
+      </ShopContext.Provider>
+    </UserContext.Provider>
   );
 }
 

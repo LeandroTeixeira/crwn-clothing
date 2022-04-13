@@ -20,8 +20,11 @@ const categories = [{
   imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
 }];
 
+const dropdownIsOpen = false;
+
 const globalData = {
   categories,
+  dropdownIsOpen,
 };
 
 export default globalData;
