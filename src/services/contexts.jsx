@@ -9,4 +9,5 @@ export const UserContext = createContext({
 
 export const ShopContext = createContext({
   products: [],
+  setProducts: () => null,
 });

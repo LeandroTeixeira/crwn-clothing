@@ -11,7 +11,7 @@ import {
 } from './firebase.utils';
 
 // Data for User Context
-const [currentUser, setCurrentUser] = useState(null);
+let [currentUser, setCurrentUser] = [null, () => null];
 
 const setUserContextData = () => ({
   currentUser,
@@ -22,7 +22,11 @@ const setUserContextData = () => ({
 const setGlobalContextData = () => ({ ...globalData });
 
 // Data for Shop Context
-const setShopContextData = () => ({ products: shopData });
+let [products, setProducts] = [null, () => null];
+const setShopContextData = () => ({
+  products,
+  setProducts,
+});
 
 // Definition of the AuthListener and Unsubscribe function
 const AuthListener = async (user) => {
@@ -39,24 +43,25 @@ const setAuthListener = () => {
 export default function Provider({ children }) {
   // Setting the auth listener and configuring the unsubscribe function to run at unmount
   useEffect(setAuthListener, []);
-
+  [currentUser, setCurrentUser] = useState(null);
   const userContextData = useMemo(
     setUserContextData,
     [currentUser, setCurrentUser],
   );
-
   // Data for Global Context
   const globalContextData = useMemo(setGlobalContextData, [globalData]);
 
   // Data for Shop Context
-  const shopContextData = useMemo(setShopContextData, [shopData]);
+  [products, setProducts] = useState(shopData);
+  const shopContextData = useMemo(setShopContextData, [products, setProducts]);
+
   return (
     <GlobalContext.Provider value={globalContextData}>
-      <ShopContext.Provider value={shopContextData}>
-        <UserContext.Provider value={userContextData}>
+      <UserContext.Provider value={userContextData}>
+        <ShopContext.Provider value={shopContextData}>
           {children}
-        </UserContext.Provider>
-      </ShopContext.Provider>
+        </ShopContext.Provider>
+      </UserContext.Provider>
     </GlobalContext.Provider>
   );
 }

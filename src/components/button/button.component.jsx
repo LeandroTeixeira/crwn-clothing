@@ -15,8 +15,8 @@ export default function Button({
 }) {
   return (
     <button
-      type={type === 'submit' ? 'submit' : 'button'}
-      className={`button-container ${BUTTON_TYPE_CLASSES[buttonType]}`}
+      type={type}
+      className={`button-container ${BUTTON_TYPE_CLASSES[buttonType.toLowerCase()]}`}
       disabled={disabled}
       onClick={onClick}
     >
