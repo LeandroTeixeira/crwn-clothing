@@ -4,6 +4,7 @@ import { Link, Outlet } from 'react-router-dom';
 import { ReactComponent as CrownLogo } from '../../assets/crown.svg';
 import { UserContext } from '../../services/contexts';
 import { signOutUser } from '../../services/firebase.utils';
+import CartIcon from '../../components/cart-icon/cart-icon.component';
 
 export default function NavBar() {
   const { currentUser } = useContext(UserContext);
@@ -31,6 +32,7 @@ export default function NavBar() {
               SIGN IN
             </Link>
           )}
+          <CartIcon />
         </div>
       </div>
       <Outlet />
