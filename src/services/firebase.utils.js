@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 // Import the functions you need from the SDKs you need
 import {
   initializeApp,
@@ -32,6 +33,7 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
+// eslint-disable-next-line no-unused-vars
 const firebaseApp = initializeApp(firebaseConfig);
 
 const provider = new GoogleAuthProvider();

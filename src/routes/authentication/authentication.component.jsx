@@ -8,12 +8,15 @@ import { UserContext } from '../../services/contexts';
 export default function Authentication() {
   const { currentUser } = useContext(UserContext);
   const navigate = useNavigate();
+
+  // If there is a logged user, navigate back to the starting page
   // eslint-disable-next-line consistent-return
   useEffect(() => {
     if (currentUser) {
       return navigate('/');
     }
   }, [currentUser]);
+
   return (
     <div className="authentication-container">
       <SigninForm />
