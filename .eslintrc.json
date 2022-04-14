@@ -25,7 +25,8 @@
       {
         "files":["**/*.test.js", "App.js","index.js"],
         "rules": {
-            "react/jsx-filename-extension":"off"
+            "react/jsx-filename-extension":"off",
+            "no-undef":"off"
         }
       }
     ]
