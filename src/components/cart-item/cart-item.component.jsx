@@ -12,7 +12,7 @@ export default function CartItem({ item }) {
   const sub = () => { decreaseCartItem(item); };
   const del = () => { removeCartItem(item); };
   return (
-    <div>
+    <div className="cart-item-container">
       <h2>
         {name}
       </h2>
