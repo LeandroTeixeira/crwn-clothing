@@ -10,7 +10,6 @@ import CartDropdown from '../../components/cart-dropdown/cart-dropdown.component
 export default function NavBar() {
   const { currentUser } = useContext(UserContext);
   const { dropdownIsOpen } = useContext(GlobalContext);
-
   const handleSignOut = async () => {
     await signOutUser();
   };

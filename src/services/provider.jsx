@@ -12,7 +12,7 @@ import {
 import defaultCartItem from './utils';
 
 // Data for User Context
-let [currentUser, setCurrentUser] = [null, () => null];
+let [currentUser, setCurrentUser] = [{}, (user) => { currentUser = user; }];
 
 const setUserContextData = () => ({
   currentUser,
@@ -21,7 +21,7 @@ const setUserContextData = () => ({
 
 // Data for Global Context
 let [dropdownIsOpen, setDropdownIsOpen] = [false, () => null];
-let [cartItems, setCartItems] = [false, () => null];
+let [cartItems, setCartItems] = [[], (items) => { cartItems = items; }];
 
 const toggleDropdown = () => {
   setDropdownIsOpen(!dropdownIsOpen);
@@ -29,8 +29,10 @@ const toggleDropdown = () => {
 
 const addCartItem = (item) => {
   let updatedItem = cartItems.find((e) => e.id === item.id);
-  if (updatedItem) updatedItem.qtd += 1;
-  else {
+  if (updatedItem) {
+    updatedItem.qtd += 1;
+    setCartItems([...cartItems]);
+  } else {
     updatedItem = { ...defaultCartItem, ...item };
     setCartItems([...cartItems, updatedItem]);
   }
@@ -45,23 +47,14 @@ const decreaseCartItem = (item) => {
   const updatedItem = cartItems.find((e) => e.id === item.id);
   if (!updatedItem) return;
   if (updatedItem.qtd === 1) removeCartItem(item);
-  else updatedItem.qtd -= 1;
+  else {
+    updatedItem.qtd -= 1;
+    setCartItems([...cartItems]);
+  }
 };
 
-const setGlobalContextData = () => ({
-  ...globalData,
-  dropdownIsOpen,
-  cartItems,
-  setCartItems,
-  addCartItem,
-  removeCartItem,
-  decreaseCartItem,
-  setDropdownIsOpen,
-  toggleDropdown,
-});
-
 // Data for Shop Context
-let [products, setProducts] = [null, () => null];
+let [products, setProducts] = [[], (value) => { products = value; }];
 const setShopContextData = () => ({
   products,
   setProducts,
@@ -91,10 +84,30 @@ export default function Provider({ children }) {
   // Data for Global Context
   [dropdownIsOpen, setDropdownIsOpen] = useState(false);
   [cartItems, setCartItems] = useState([]);
-  const globalContextData = useMemo(
-    setGlobalContextData,
-    [globalData, dropdownIsOpen, setDropdownIsOpen, toggleDropdown],
-  );
+  const globalContextData = {
+    ...globalData,
+    dropdownIsOpen,
+    cartItems,
+    setCartItems,
+    addCartItem,
+    removeCartItem,
+    decreaseCartItem,
+    setDropdownIsOpen,
+    toggleDropdown,
+  };
+
+  const setGlobalContextData = () => globalContextData;
+  const providedGlobalContextData = useMemo(setGlobalContextData, [
+    globalData,
+    dropdownIsOpen,
+    setDropdownIsOpen,
+    toggleDropdown,
+    cartItems,
+    setCartItems,
+    addCartItem,
+    removeCartItem,
+    decreaseCartItem,
+  ]);
 
   // Data for Shop Context
   [products, setProducts] = useState(shopData);
@@ -103,7 +116,7 @@ export default function Provider({ children }) {
   return (
     <UserContext.Provider value={userContextData}>
       <ShopContext.Provider value={shopContextData}>
-        <GlobalContext.Provider value={globalContextData}>
+        <GlobalContext.Provider value={providedGlobalContextData}>
           {children}
         </GlobalContext.Provider>
       </ShopContext.Provider>

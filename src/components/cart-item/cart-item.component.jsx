@@ -1,11 +1,30 @@
+/* eslint-disable react/prop-types */
 import './cart-item.styles.scss';
-import React from 'react';
+import React, { useContext } from 'react';
+import { GlobalContext } from '../../services/contexts';
 
-export default function CartItem({ cartItem }) {
-  const { name, quantity } = cartItem;
+export default function CartItem({ item }) {
+  const {
+    addCartItem, decreaseCartItem, removeCartItem,
+  } = useContext(GlobalContext);
+  const { name, qtd } = item;
+  const add = () => { addCartItem(item); };
+  const sub = () => { decreaseCartItem(item); };
+  const del = () => { removeCartItem(item); };
+  return (
     <div>
-      <h2>{name}</h2>
-      <span>{quantity}</span>
+      <h2>
+        {name}
+      </h2>
 
-    </div>;
+      <h2>
+        QTD:
+        {' '}
+        {qtd}
+      </h2>
+      <button onClick={add}>increase</button>
+      <button onClick={sub}>decrease</button>
+      <button onClick={del}>remove</button>
+    </div>
+  );
 }

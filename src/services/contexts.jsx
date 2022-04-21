@@ -9,6 +9,8 @@ export const GlobalContext = createContext({
   addCartItem: () => null,
   decreaseCartItem: () => null,
   removeCartItem: () => null,
+  getCartItem: () => null,
+  getTotal: () => null,
 });
 
 export const UserContext = createContext({
