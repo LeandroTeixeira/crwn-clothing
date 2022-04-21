@@ -5,7 +5,7 @@ import { ReactComponent as ShoppingIcon } from '../../assets/shopping-bag.svg';
 import { GlobalContext } from '../../services/contexts';
 
 export default function CartIcon() {
-  const { toggleDropdown } = useContext(GlobalContext);
+  const { toggleDropdown, cartItems } = useContext(GlobalContext);
   const handleKeyPress = ({ key }) => {
     if (key === 'Enter') toggleDropdown();
   };
@@ -17,7 +17,7 @@ export default function CartIcon() {
       onClick={toggleDropdown}
     >
       <ShoppingIcon className="shopping-icon" />
-      <span className="item-count">0</span>
+      <span className="item-count">{cartItems.length}</span>
     </div>
   );
 }
