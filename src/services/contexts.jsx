@@ -1,6 +1,15 @@
 import { createContext } from 'react';
 
-export const GlobalContext = createContext('');
+export const GlobalContext = createContext({
+  categories: [],
+  cartItems: [],
+  dropdownIsOpen: false,
+  setDropdownIsOpen: () => null,
+  toggleDropdown: () => null,
+  addCartItem: () => null,
+  decreaseCartItem: () => null,
+  removeCartItem: () => null,
+});
 
 export const UserContext = createContext({
   currentUser: null,

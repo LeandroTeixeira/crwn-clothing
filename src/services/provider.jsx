@@ -9,6 +9,7 @@ import {
   createUserDocumentFromAuth,
   onAuthStateChangeListener,
 } from './firebase.utils';
+import defaultCartItem from './utils';
 
 // Data for User Context
 let [currentUser, setCurrentUser] = [null, () => null];
@@ -20,13 +21,41 @@ const setUserContextData = () => ({
 
 // Data for Global Context
 let [dropdownIsOpen, setDropdownIsOpen] = [false, () => null];
+let [cartItems, setCartItems] = [false, () => null];
+
 const toggleDropdown = () => {
   setDropdownIsOpen(!dropdownIsOpen);
+};
+
+const addCartItem = (item) => {
+  let updatedItem = cartItems.find((e) => e.id === item.id);
+  if (updatedItem) updatedItem.qtd += 1;
+  else {
+    updatedItem = { ...defaultCartItem, ...item };
+    setCartItems([...cartItems, updatedItem]);
+  }
+};
+
+const removeCartItem = (item) => {
+  const filteredCart = cartItems.filter((e) => e.id !== item.id);
+  setCartItems(filteredCart);
+};
+
+const decreaseCartItem = (item) => {
+  const updatedItem = cartItems.find((e) => e.id === item.id);
+  if (!updatedItem) return;
+  if (updatedItem.qtd === 1) removeCartItem(item);
+  else updatedItem.qtd -= 1;
 };
 
 const setGlobalContextData = () => ({
   ...globalData,
   dropdownIsOpen,
+  cartItems,
+  setCartItems,
+  addCartItem,
+  removeCartItem,
+  decreaseCartItem,
   setDropdownIsOpen,
   toggleDropdown,
 });
@@ -58,8 +87,10 @@ export default function Provider({ children }) {
     setUserContextData,
     [currentUser, setCurrentUser],
   );
+
   // Data for Global Context
   [dropdownIsOpen, setDropdownIsOpen] = useState(false);
+  [cartItems, setCartItems] = useState([]);
   const globalContextData = useMemo(
     setGlobalContextData,
     [globalData, dropdownIsOpen, setDropdownIsOpen, toggleDropdown],
