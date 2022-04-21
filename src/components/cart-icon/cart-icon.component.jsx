@@ -17,7 +17,9 @@ export default function CartIcon() {
       onClick={toggleDropdown}
     >
       <ShoppingIcon className="shopping-icon" />
-      <span className="item-count">{cartItems.length}</span>
+      <span className="item-count">
+        {cartItems.reduce((acc, current) => acc + current.qtd, 0)}
+      </span>
     </div>
   );
 }

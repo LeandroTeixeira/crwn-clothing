@@ -7,24 +7,34 @@ export default function CartItem({ item }) {
   const {
     addCartItem, decreaseCartItem, removeCartItem,
   } = useContext(GlobalContext);
-  const { name, qtd } = item;
+  const {
+    name, qtd, imageUrl, price,
+  } = item;
   const add = () => { addCartItem(item); };
   const sub = () => { decreaseCartItem(item); };
   const del = () => { removeCartItem(item); };
   return (
     <div className="cart-item-container">
-      <h2>
-        {name}
-      </h2>
-
-      <h2>
-        QTD:
-        {' '}
-        {qtd}
-      </h2>
-      <button onClick={add}>increase</button>
-      <button onClick={sub}>decrease</button>
-      <button onClick={del}>remove</button>
+      <img src={imageUrl} alt={name} />
+      <div className="item-details">
+        <span className="name">{name}</span>
+        <span className="price">
+          <button onClick={sub} className="sub">
+            -
+          </button>
+          {qtd}
+          <button onClick={add} className="add">
+            +
+          </button>
+          $
+          {price}
+        </span>
+        {/*
+         */}
+      </div>
+      <button onClick={del} className="del">
+        &#10006;
+      </button>
     </div>
   );
 }
