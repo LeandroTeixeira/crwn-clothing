@@ -4,6 +4,7 @@ import Home from './routes/home/home.component';
 import NavBar from './routes/nav-bar/nav-bar.component';
 import Authentication from './routes/authentication/authentication.component';
 import Shop from './routes/shop/shop.component';
+import Checkout from './routes/checkout/checkout.component';
 
 function NotFound() {
   return (
@@ -18,6 +19,7 @@ function App() {
     <Routes>
       <Route path="/" element={<NavBar />}>
         <Route index element={<Home />} />
+        <Route path="checkout" element={<Checkout />} />
         <Route path="auth" element={<Authentication />} />
         <Route path="shop" element={<Shop />} />
         <Route path="*" element={<NotFound />} />
