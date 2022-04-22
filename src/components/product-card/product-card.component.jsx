@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { string } from 'prop-types';
 import Button from '../button/button.component';
 import { GlobalContext } from '../../services/contexts';
+import { currencyFormatter } from '../../services/utils';
 
 export default function ProductCard({
   product: {
@@ -21,10 +22,7 @@ export default function ProductCard({
       <div className="footer">
         <span className="name">{name}</span>
         <span className="price">
-          {new Intl.NumberFormat('pt-BR', {
-            style: 'currency',
-            currency: 'USD',
-          }).format(price)}
+          {currencyFormatter(price)}
         </span>
       </div>
       <Button buttonType="Inverted" onClick={add}>Add to Cart</Button>

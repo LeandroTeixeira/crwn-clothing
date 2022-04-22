@@ -3,6 +3,7 @@ import { createContext } from 'react';
 export const GlobalContext = createContext({
   categories: [],
   cartItems: [],
+  total: 0,
   dropdownIsOpen: false,
   setDropdownIsOpen: () => null,
   toggleDropdown: () => null,
@@ -10,7 +11,7 @@ export const GlobalContext = createContext({
   decreaseCartItem: () => null,
   removeCartItem: () => null,
   getCartItem: () => null,
-  getTotal: () => null,
+  setTotal: () => null,
 });
 
 export const UserContext = createContext({

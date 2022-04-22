@@ -2,12 +2,11 @@ import React, { useContext } from 'react';
 import './checkout.styles.scss';
 import { GlobalContext } from '../../services/contexts';
 import CheckoutItem from '../../components/checkout-item/checkout-item.component';
-
-const getTotalPrice = (cart) => cart.reduce((acc, current) => acc + current.qtd * current.price, 0);
+import { currencyFormatter } from '../../services/utils';
 
 export default function Checkout() {
   const {
-    cartItems, addCartItem, removeCartItem, decreaseCartItem,
+    cartItems, total, addCartItem, removeCartItem, decreaseCartItem,
   } = useContext(GlobalContext);
 
   return (
@@ -43,10 +42,7 @@ export default function Checkout() {
       })}
       <span className="total">
         Total :
-        {new Intl.NumberFormat('pt-BR', {
-          style: 'currency',
-          currency: 'USD',
-        }).format(getTotalPrice(cartItems))}
+        {currencyFormatter(total)}
       </span>
     </div>
   );

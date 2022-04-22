@@ -6,4 +6,9 @@ const defaultCartItem = {
   price: null,
 };
 
+export const currencyFormatter = (value) => new Intl.NumberFormat('pt-BR', {
+  style: 'currency',
+  currency: 'USD',
+}).format(value);
+
 export default defaultCartItem;
