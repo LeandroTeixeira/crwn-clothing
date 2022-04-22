@@ -4,7 +4,7 @@ import React, {
 } from 'react';
 import { GlobalContext, UserContext, ShopContext } from './contexts';
 import globalData from './globalData';
-import shopData from './shopData.json';
+import SHOP_DATA from './shopData';
 import {
   createUserDocumentFromAuth,
   onAuthStateChangeListener,
@@ -120,7 +120,7 @@ export default function Provider({ children }) {
   ]);
 
   // Data for Shop Context
-  [products, setProducts] = useState(shopData);
+  [products, setProducts] = useState(SHOP_DATA[0].items);
   const shopContextData = useMemo(setShopContextData, [products, setProducts]);
 
   return (
