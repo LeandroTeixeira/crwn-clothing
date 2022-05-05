@@ -6,12 +6,9 @@ import {
 
 export default function CategoryItem({ category: { id, imageUrl, title } }) {
   return (
-    <CategoryContainer key={id}>
+    <CategoryContainer to={`/shop/${title}`} key={id}>
       <BackgroundImage imageUrl={imageUrl} />
-      <Body
-        className="category-body-container"
-        to={`/shop/${title}`}
-      >
+      <Body className="category-body-container">
         <h2>{title}</h2>
         <p>Shop Now</p>
       </Body>

@@ -2,26 +2,34 @@ import {
   bool, func, node, oneOf, string,
 } from 'prop-types';
 import React from 'react';
-import './button.styles.scss';
+import { BaseButton, GoogleSignInButton, InvertedButton } from './button.styles';
 
-const BUTTON_TYPE_CLASSES = {
+export const BUTTON_TYPE_CLASSES = {
   google: 'google-sign-in',
   inverted: 'inverted',
   default: 'default',
 };
 
+const getButton = (buttonType = BUTTON_TYPE_CLASSES.default) => (
+  {
+    [BUTTON_TYPE_CLASSES.default]: BaseButton,
+    [BUTTON_TYPE_CLASSES.inverted]: InvertedButton,
+    [BUTTON_TYPE_CLASSES.google]: GoogleSignInButton,
+  }[buttonType]);
+
 export default function Button({
   children, buttonType, type, disabled, onClick,
 }) {
+  const CustomButton = getButton(buttonType);
   return (
-    <button
+    <CustomButton
       type={type}
       className={`button-container ${BUTTON_TYPE_CLASSES[buttonType.toLowerCase()]}`}
       disabled={disabled}
       onClick={onClick}
     >
       {children}
-    </button>
+    </CustomButton>
   );
 }
 

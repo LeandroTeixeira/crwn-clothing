@@ -4,11 +4,9 @@ import React, {
 } from 'react';
 import { GlobalContext, UserContext, ShopContext } from './contexts';
 import globalData from './globalData';
-import SHOP_DATA from './shopData';
 import {
   createUserDocumentFromAuth,
   onAuthStateChangeListener,
-  addCollectionAndDocuments,
   getCategoriesAndDocuments,
 } from './firebase.utils';
 import defaultCartItem from './utils';

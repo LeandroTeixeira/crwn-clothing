@@ -1,9 +1,11 @@
-import './product-card.styles.scss';
 import React, { useContext } from 'react';
 import { string } from 'prop-types';
-import Button from '../button/button.component';
+import Button, { BUTTON_TYPE_CLASSES } from '../button/button.component';
 import { GlobalContext } from '../../services/contexts';
 import { currencyFormatter } from '../../services/utils';
+import {
+  Footer, Name, Price, ProductCardContainer,
+} from './product-card.styles';
 
 export default function ProductCard({
   product: {
@@ -17,16 +19,16 @@ export default function ProductCard({
     });
   };
   return (
-    <div className="product-card-container">
+    <ProductCardContainer>
       <img src={imageUrl} alt={name} />
-      <div className="footer">
-        <span className="name">{name}</span>
-        <span className="price">
-          {currencyFormatter(price)}
-        </span>
-      </div>
-      <Button buttonType="Inverted" onClick={add}>Add to Cart</Button>
-    </div>
+      <Footer>
+        <Name>{name}</Name>
+        <Price>{currencyFormatter(price)}</Price>
+      </Footer>
+      <Button buttonType={BUTTON_TYPE_CLASSES.inverted} onClick={add}>
+        Add to Cart
+      </Button>
+    </ProductCardContainer>
   );
 }
 

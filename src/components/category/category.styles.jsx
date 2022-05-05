@@ -8,6 +8,3 @@ const CategoriesContainer = styled.div`
 `;
 
 export default CategoriesContainer;
-// .categories-container {
-
-// }

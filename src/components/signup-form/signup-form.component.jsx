@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from '../../services/firebase.utils';
-import './signup-form.styles.scss';
 import FormInput from '../form-input/form-input.component';
 import Button from '../button/button.component';
+import { Error, SignUpContainer, Success } from './signup-form.styles';
 
 const defaultFormFields = {
   displayName: '',
@@ -81,7 +81,7 @@ export default function SignupForm() {
   };
 
   return (
-    <div className="sign-up-container">
+    <SignUpContainer>
       <h2> Don&#39;t have an account ? </h2>
       <span> Sign Up with Email and Password</span>
       <form onSubmit={handleSubmit}>
@@ -114,24 +114,21 @@ export default function SignupForm() {
           handleChange={handleChange}
           value={confirmPassword}
         />
-        <div
-          className={` message ${
-            warnMessage.match(/Error/) ? 'error' : 'success'
-          } `}
-        >
-          {warnMessage}
-        </div>
-        <div
-          className={` message ${
-            successMessage.match(/Error/) ? 'error' : 'success'
-          } `}
-        >
-          {successMessage}
-        </div>
+        {warnMessage.match(/Error/) ? (
+          <Error>{warnMessage}</Error>
+        ) : (
+          <Success>{warnMessage}</Success>
+        )}
+        {successMessage.match(/Error/) ? (
+          <Error>{successMessage}</Error>
+        ) : (
+          <Success>{successMessage}</Success>
+        )}
+
         <Button type="submit" disabled={validateFields(formFields)}>
           Sign Up
         </Button>
       </form>
-    </div>
+    </SignUpContainer>
   );
 }

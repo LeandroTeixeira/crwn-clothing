@@ -1,9 +1,9 @@
 import React, { useContext, useEffect } from 'react';
-import './authentication.styles.scss';
 import { useNavigate } from 'react-router-dom';
 import SignupForm from '../../components/signup-form/signup-form.component';
 import SigninForm from '../../components/signin-form/signin-form.component';
 import { UserContext } from '../../services/contexts';
+import AuthenticationContainer from './authentication.styles';
 
 export default function Authentication() {
   const { currentUser } = useContext(UserContext);
@@ -18,9 +18,9 @@ export default function Authentication() {
   }, [currentUser]);
 
   return (
-    <div className="authentication-container">
+    <AuthenticationContainer>
       <SigninForm />
       <SignupForm />
-    </div>
+    </AuthenticationContainer>
   );
 }

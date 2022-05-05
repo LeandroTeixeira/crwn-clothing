@@ -2,7 +2,7 @@ import React, {
   useContext,
 } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Button from '../button/button.component';
+import Button, { BUTTON_TYPE_CLASSES } from '../button/button.component';
 import CartItem from '../cart-item/cart-item.component';
 import { CartDropdownContainer, CartItems, EmptyCart } from './cart-dropdown.styles';
 import { GlobalContext } from '../../services/contexts';
@@ -25,7 +25,7 @@ export default function CartDropdown() {
         Total :
         {currencyFormatter(total)}
       </h2>
-      <Button buttonType="default" onClick={goToCheckoutHandler}>
+      <Button buttonType={BUTTON_TYPE_CLASSES.default} onClick={goToCheckoutHandler}>
         GO TO CHECKOUT
       </Button>
     </CartDropdownContainer>

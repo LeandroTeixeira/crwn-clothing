@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
-import './checkout.styles.scss';
 import { GlobalContext } from '../../services/contexts';
 import CheckoutItem from '../../components/checkout-item/checkout-item.component';
 import { currencyFormatter } from '../../services/utils';
+import {
+  CheckoutContainer, CheckoutHeader, HeaderBlock, Total,
+} from './checkout.styles';
 
 export default function Checkout() {
   const {
@@ -10,24 +12,24 @@ export default function Checkout() {
   } = useContext(GlobalContext);
 
   return (
-    <div className="checkout-container">
-      <div className="checkout-header">
-        <div className="header-block">
+    <CheckoutContainer>
+      <CheckoutHeader>
+        <HeaderBlock>
           <span>Product</span>
-        </div>
-        <div className="header-block">
+        </HeaderBlock>
+        <HeaderBlock>
           <span>Description</span>
-        </div>
-        <div className="header-block">
+        </HeaderBlock>
+        <HeaderBlock>
           <span>Quantity</span>
-        </div>
-        <div className="header-block">
+        </HeaderBlock>
+        <HeaderBlock>
           <span>Price</span>
-        </div>
-        <div className="header-block">
+        </HeaderBlock>
+        <HeaderBlock>
           <span>Remove</span>
-        </div>
-      </div>
+        </HeaderBlock>
+      </CheckoutHeader>
       {cartItems.map((item) => {
         const { id } = item;
         return (
@@ -40,10 +42,10 @@ export default function Checkout() {
           />
         );
       })}
-      <span className="total">
+      <Total>
         Total :
         {currencyFormatter(total)}
-      </span>
-    </div>
+      </Total>
+    </CheckoutContainer>
   );
 }
