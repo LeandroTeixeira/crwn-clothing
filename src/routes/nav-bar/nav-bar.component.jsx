@@ -1,6 +1,9 @@
-import './nav-bar.styles.scss';
 import React, { useContext } from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import {
+  NavigationContainer, LogoContainer, NavLink, NavLinksContainer,
+} from './nav-bar.styles';
+
 import { ReactComponent as CrownLogo } from '../../assets/crown.svg';
 import { GlobalContext, UserContext } from '../../services/contexts';
 import { signOutUser } from '../../services/firebase.utils';
@@ -16,28 +19,24 @@ export default function NavBar() {
 
   return (
     <>
-      <div className="navigation">
-        <Link to="/" className="logo-container">
+      <NavigationContainer>
+        <LogoContainer to="/">
           <CrownLogo />
-        </Link>
-        <div className="nav-links-container">
-          <Link to="/shop" className="nav-link">
-            SHOP
-          </Link>
+        </LogoContainer>
+        <NavLinksContainer>
+          <NavLink to="/shop">SHOP</NavLink>
 
           {currentUser ? (
-            <Link to="/" className="nav-link" aria-hidden="true" onClick={handleSignOut}>
+            <NavLink to="/" aria-hidden="true" onClick={handleSignOut}>
               SIGN OUT
-            </Link>
+            </NavLink>
           ) : (
-            <Link to="/auth" className="nav-link">
-              SIGN IN
-            </Link>
+            <NavLink to="/auth">SIGN IN</NavLink>
           )}
           <CartIcon />
-        </div>
+        </NavLinksContainer>
         {dropdownIsOpen && <CartDropdown />}
-      </div>
+      </NavigationContainer>
       <Outlet />
     </>
   );

@@ -1,15 +1,15 @@
-import './category.styles.scss';
 import React from 'react';
 import { arrayOf, object } from 'prop-types';
+import CategoriesContainer from './category.styles';
 import CategoryItem from '../category-item/category-item.component';
 
 export default function Category({ categories }) {
   return (
-    <div className="categories-container">
+    <CategoriesContainer>
       {categories.map((category) => (
         <CategoryItem key={category.id} category={category} />
       ))}
-    </div>
+    </CategoriesContainer>
   );
 }
 

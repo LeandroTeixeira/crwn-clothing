@@ -1,7 +1,9 @@
 /* eslint-disable react/prop-types */
-import './cart-item.styles.scss';
 import React, { useContext } from 'react';
 import { GlobalContext } from '../../services/contexts';
+import {
+  CartItemContainer, ItemDetails, Name, Price, Del, AddSub,
+} from './cart-item.styles';
 
 export default function CartItem({ item }) {
   const {
@@ -14,27 +16,25 @@ export default function CartItem({ item }) {
   const sub = () => { decreaseCartItem(item); };
   const del = () => { removeCartItem(item); };
   return (
-    <div className="cart-item-container">
+    <CartItemContainer>
       <img src={imageUrl} alt={name} />
-      <div className="item-details">
-        <span className="name">{name}</span>
-        <span className="price">
-          <button onClick={sub} className="sub">
+      <ItemDetails>
+        <Name>{name}</Name>
+        <Price>
+          <AddSub onClick={sub}>
             -
-          </button>
+          </AddSub>
           {qtd}
-          <button onClick={add} className="add">
+          <AddSub onClick={add}>
             +
-          </button>
+          </AddSub>
           $
-          {price}
-        </span>
-        {/*
-         */}
-      </div>
-      <button onClick={del} className="del">
+          {qtd * price}
+        </Price>
+      </ItemDetails>
+      <Del onClick={del}>
         &#10006;
-      </button>
-    </div>
+      </Del>
+    </CartItemContainer>
   );
 }

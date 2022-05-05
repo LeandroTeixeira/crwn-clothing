@@ -2,7 +2,7 @@ import {
   bool, func, node, oneOf, string,
 } from 'prop-types';
 import React from 'react';
-import './button.style.scss';
+import './button.styles.scss';
 
 const BUTTON_TYPE_CLASSES = {
   google: 'google-sign-in',

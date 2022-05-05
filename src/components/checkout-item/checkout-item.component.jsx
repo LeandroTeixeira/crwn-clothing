@@ -1,8 +1,12 @@
-import './checkout-item.styles.scss';
 import React from 'react';
 import {
   number, string, shape, func,
 } from 'prop-types';
+import {
+  Arrow,
+  BaseSpan, CheckoutItemContainer, ImageContainer, Quantity, RemoveButton, Value,
+} from './checkout-item.styles';
+import { currencyFormatter } from '../../services/utils';
 
 export default function CheckoutItem({
   cartItem: {
@@ -10,24 +14,19 @@ export default function CheckoutItem({
   }, remove, increase, decrease,
 }) {
   return (
-    <div className="checkout-item-container">
-      <div className="image-container">
+    <CheckoutItemContainer>
+      <ImageContainer>
         <img src={imageUrl} alt={name} />
-      </div>
-      <span className="name">{name}</span>
-      <span className="quantity">
-        <button className="arrow" onClick={decrease}>&#10094;</button>
-        <span className="value">
-          {qtd}
-        </span>
-        <button className="arrow" onClick={increase}>&#10095;</button>
-      </span>
-      <span className="price">{price}</span>
-      <button className="remove-button" onClick={remove}>
-        {' '}
-        &#10005;
-      </button>
-    </div>
+      </ImageContainer>
+      <BaseSpan>{name}</BaseSpan>
+      <Quantity>
+        <Arrow onClick={decrease}>&#10094;</Arrow>
+        <Value>{qtd}</Value>
+        <Arrow onClick={increase}>&#10095;</Arrow>
+      </Quantity>
+      <BaseSpan>{currencyFormatter(qtd * price)}</BaseSpan>
+      <RemoveButton onClick={remove}> &#10005;</RemoveButton>
+    </CheckoutItemContainer>
   );
 }
 

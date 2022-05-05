@@ -14,7 +14,7 @@ export default function CategoryRoute() {
   }, [category, categoriesMap]);
   return (
     <div>
-      <h2>{category}</h2>
+      <h2 className="category-title">{category.toUpperCase()}</h2>
       <div className="category-route-container">
         {products && products.map((item) => <ProductCard key={item.id} product={item} />)}
       </div>
