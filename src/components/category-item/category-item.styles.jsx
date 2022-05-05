@@ -33,7 +33,7 @@ export const Body = styled.div`
   }
 `;
 
-export const CategoryContainer = styled(Link)`
+export const CategoryContainer = styled.div`
   min-width: 30%;
   height: 240px;
   flex: 1 1 auto;
