@@ -135,7 +135,7 @@ export default function Provider({ children }) {
   useEffect(() => {
     const getCategories = async () => {
       const categoryMap = await getCategoriesAndDocuments('categories');
-      console.log(categoryMap);
+      // console.log(categoryMap);
       setCategoriesMap(categoryMap);
     };
     getCategories();
