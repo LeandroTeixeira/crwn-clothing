@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import * as React from 'react';
 // import { setGlobalContextData, Provider } from './provider';
-import shopData from './shopData.json';
+import shopData from './shopData';
 
 describe('Services - Provider', () => {
   it('1 - Global Context', () => {

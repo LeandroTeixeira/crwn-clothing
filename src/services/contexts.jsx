@@ -20,6 +20,6 @@ export const UserContext = createContext({
 });
 
 export const ShopContext = createContext({
-  products: [],
-  setProducts: () => null,
+  categoriesMap: [],
+  setCategoriesMap: () => null,
 });

@@ -8,6 +8,8 @@ import SHOP_DATA from './shopData';
 import {
   createUserDocumentFromAuth,
   onAuthStateChangeListener,
+  addCollectionAndDocuments,
+  getCategoriesAndDocuments,
 } from './firebase.utils';
 import defaultCartItem from './utils';
 
@@ -55,10 +57,15 @@ const decreaseCartItem = (item) => {
 };
 
 // Data for Shop Context
-let [products, setProducts] = [[], (value) => { products = value; }];
+let [categoriesMap, setCategoriesMap] = [
+  [],
+  (value) => {
+    categoriesMap = value;
+  },
+];
 const setShopContextData = () => ({
-  products,
-  setProducts,
+  categoriesMap,
+  setCategoriesMap,
 });
 
 // Definition of the AuthListener and Unsubscribe function
@@ -120,8 +127,24 @@ export default function Provider({ children }) {
   ]);
 
   // Data for Shop Context
-  [products, setProducts] = useState(SHOP_DATA[0].items);
-  const shopContextData = useMemo(setShopContextData, [products, setProducts]);
+  [categoriesMap, setCategoriesMap] = useState({});
+  // useEffect(() => {
+  //  addCollectionAndDocuments('categories', SHOP_DATA);
+  // }, []);
+
+  useEffect(() => {
+    const getCategories = async () => {
+      const categoryMap = await getCategoriesAndDocuments('categories');
+      console.log(categoryMap);
+      setCategoriesMap(categoryMap);
+    };
+    getCategories();
+  }, []);
+
+  const shopContextData = useMemo(setShopContextData, [
+    categoriesMap,
+    setCategoriesMap,
+  ]);
 
   return (
     <UserContext.Provider value={userContextData}>
