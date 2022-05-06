@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 export const BaseButton = styled.button`
-min-width: 200px;
+  min-width: 200px;
   width: auto;
   height: 50px;
   letter-spacing: 0.5px;
@@ -12,19 +12,29 @@ min-width: 200px;
   background-color: black;
   color: white;
   text-transform: uppercase;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: bolder;
   border: none;
   cursor: pointer;
   display: flex;
   justify-content: center;
-  
   &:hover {
     background-color: white;
     color: black;
     border: 1px solid black;
   }
 `;
+export const DisabledBaseButton = styled(BaseButton)`
+  opacity: 0.25;
+  cursor: default;
+  &:hover {
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: default;
+  }
+`;
+
 export const GoogleSignInButton = styled(BaseButton)`
   background-color: #4285f4;
   color: white;

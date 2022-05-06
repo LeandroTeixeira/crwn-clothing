@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from '../../services/firebase.utils';
 import FormInput from '../form-input/form-input.component';
-import Button from '../button/button.component';
-import { Error, SignUpContainer, Success } from './signup-form.styles';
+import Button, { BUTTON_TYPE_CLASSES } from '../button/button.component';
+import {
+  Error, SignInButton, SignUpContainer, Success,
+} from './signup-form.styles';
 
 const defaultFormFields = {
   displayName: '',
@@ -124,10 +126,19 @@ export default function SignupForm() {
         ) : (
           <Success>{successMessage}</Success>
         )}
-
-        <Button type="submit" disabled={validateFields(formFields)}>
-          Sign Up
-        </Button>
+        <SignInButton>
+          <Button
+            type="submit"
+            buttonType={
+              validateFields(formFields)
+                ? BUTTON_TYPE_CLASSES.disabledBase
+                : BUTTON_TYPE_CLASSES.default
+            }
+            disabled={validateFields(formFields)}
+          >
+            Sign Up
+          </Button>
+        </SignInButton>
       </form>
     </SignUpContainer>
   );
