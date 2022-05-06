@@ -1,5 +1,7 @@
 # Crwn Clothing
 
+![Shop Page](/Project.png "Shop Page")
+
 ## Description
 Full Stack E-Commerce App built with React, using Firebase, deployed with Netlify. Currently hosted at https://superb-meerkat-5c8e8c.netlify.app/
 
