@@ -25,7 +25,6 @@ export const AltFooterContainer = styled.div`
   width: 100%;
   display: grid;
   align-items: center;
-  border-top: 1px solid black;
   background-color: white;
   @media screen and (max-width: 800px) {
     grid-template-columns: repeat(1, 1fr);

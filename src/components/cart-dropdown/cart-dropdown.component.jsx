@@ -22,7 +22,8 @@ export default function CartDropdown() {
         ))}
       </CartItems>
       <h2>
-        Total :
+        Total:
+        {' '}
         {currencyFormatter(total)}
       </h2>
       <Button buttonType={BUTTON_TYPE_CLASSES.default} onClick={goToCheckoutHandler}>

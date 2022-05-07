@@ -43,7 +43,8 @@ export default function Checkout() {
         );
       })}
       <Total>
-        Total :
+        Total:
+        {' '}
         {currencyFormatter(total)}
       </Total>
     </CheckoutContainer>
