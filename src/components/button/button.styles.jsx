@@ -30,7 +30,7 @@ export const BaseButton = styled.button`
   @media screen and (max-width: 650px) {
     min-width: 100px;
     padding: 0 5px 0 5px;
-    font-size: 11px;
+    font-size: 12px;
   }
   &:hover {
     background-color: white;

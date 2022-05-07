@@ -47,15 +47,3 @@ export const NavLink = styled(Link)`
   cursor: pointer;
   font-weight: bolder;
 `;
-
-//   .logo-container {
-//
-//   }
-
-//   .nav-links-container {
-
-//     .nav-link {
-
-//     }
-//   }
-// }

@@ -32,7 +32,6 @@ export const CheckoutHeader = styled.div`
   border-bottom: 1px solid darkgrey;
   @media screen and (max-width: 800px) {
     justify-content: space-evenly
-    font-size:  5px;
     width: 100%;
   }
 `;

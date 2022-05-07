@@ -53,24 +53,3 @@ export const Price = styled.span`
   font-size: 14px;
 
 `;
-
-// .cart-item-container {
-
-//   img {
-//   }
-//   .add, .sub {
-
-//   }
-
-// .del {
-
-// }
-//   .item-details {
-
-//     .name {
-//     }
-//     .price {
-//       font-size: 14px;
-//     }
-//   }
-// }

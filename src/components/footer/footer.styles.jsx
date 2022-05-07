@@ -36,7 +36,7 @@ export const AltFooterContainer = styled.div`
 `;
 
 export const Disclaimer = styled.div`
-  font-size: 10px;
+  font-size: 12px;
   text-align: center;
   @media screen and (max-width: 800px) {
     display: none;
@@ -44,7 +44,7 @@ export const Disclaimer = styled.div`
 `;
 
 export const AltDisclaimer = styled.div`
-  font-size: 10px;
+  font-size: 12px;
   text-align: center;
   @media screen and (min-width: 800px) {
     display: none;
@@ -52,7 +52,7 @@ export const AltDisclaimer = styled.div`
 `;
 
 export const Copyright = styled.span`
-  font-size: 11px;
+  font-size: 12px;
   text-align: center;
 
   @media screen and (max-width: 550px) {
@@ -61,7 +61,7 @@ export const Copyright = styled.span`
 `;
 
 export const AltCopyright = styled.span`
-  font-size: 11px;
+  font-size: 12px;
   text-align: center;
   @media screen and (min-width: 550px) {
     display: none;
