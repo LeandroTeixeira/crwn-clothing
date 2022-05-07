@@ -11,7 +11,7 @@ export default function CategoryItem({ category: { id, imageUrl, title } }) {
   return (
     <CategoryContainer onClick={onNavigateHandler} key={id}>
       <BackgroundImage imageUrl={imageUrl} />
-      <Body className="category-body-container">
+      <Body>
         <h2>{title}</h2>
         <p>Shop Now</p>
       </Body>

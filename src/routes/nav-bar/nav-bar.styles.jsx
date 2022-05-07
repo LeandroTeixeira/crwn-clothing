@@ -7,20 +7,38 @@ export const NavigationContainer = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 25px;
- `;
+  @media screen and (max-width: 800px) {
+    height: 40px;
+    margin-bottom: 20px;
+  }
+  @media screen and (max-width: 400px) {
+    height: 30px;
+    margin-bottom: 15px;
+  }
+`;
 
 export const LogoContainer = styled(Link)`
   height: 100%;
   width: 70px;
   padding: 25px;
- `;
+  @media screen and (max-width: 800px) {
+    padding: 10px 15px 10px 15px;
+  }
+  @media screen and (max-width: 400px) {
+    padding: 0px 15px 0px 15px;
+  }
+`;
 
 export const NavLinksContainer = styled.div`
-      width: 50%;
-       height: 100%;
-       display: flex;
-       align-items: center;
-       justify-content: flex-end;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  @media screen and (max-width: 800px) {
+    width: 70%;
+    padding-top: 15px;
+  }
 `;
 
 export const NavLink = styled(Link)`
