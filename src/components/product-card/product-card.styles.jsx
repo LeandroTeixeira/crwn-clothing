@@ -7,12 +7,26 @@ export const ProductCardContainer = styled.div`
   height: 350px;
   align-items: center;
   position: relative;
-
+  @media screen and (max-width: 1000px) {
+    height: 300px;
+  }
+  @media screen and (max-width: 900px) {
+    height: 275px;
+  }
+  @media screen and (max-width: 800px) {
+    height: 250px;
+  }
+  @media screen and (max-width: 650px) {
+    height: 175px;
+  }
   img {
     width: 100%;
     height: 95%;
     object-fit: cover;
     margin-bottom: 5px;
+    @media screen and (max-width: 800px) {
+      margin-bottom: 0px;
+    }
   }
 
   button {
@@ -20,6 +34,12 @@ export const ProductCardContainer = styled.div`
     opacity: 0.7;
     position: absolute;
     top: 255px;
+    @media screen and (max-width: 800px) {
+      top: 150px;
+    }
+    @media screen and (max-width: 650px) {
+      top: 100px;
+    }
     display: none;
   }
 
@@ -33,7 +53,6 @@ export const ProductCardContainer = styled.div`
       display: flex;
     }
   }
-
 `;
 
 export const Footer = styled.div`
@@ -41,15 +60,33 @@ export const Footer = styled.div`
   height: 5%;
   display: flex;
   justify-content: space-between;
-  font-size: 18px;
+  @media screen and (max-width: 850px) {
+    font-size: 15px;
+  }
+  @media screen and (max-width: 750px) {
+    font-size: 14px;
+  }
+  @media screen and (max-width: 700px) {
+    font-size: 13px;
+  }
+  @media screen and (max-width: 650px) {
+    font-size: 17px;
+  }
+  @media screen and (max-width: 550px) {
+    font-size: 15px;
+  }
+  @media screen and (max-width: 500px) {
+    font-size: 14px;
+  }
+  @media screen and (max-width: 450px) {
+    font-size: 13px;
+  }
 `;
 
 export const Name = styled.span`
-  width: 80%;
   margin-bottom: 15px;
 `;
 
 export const Price = styled.span`
-  width: 20%;
   margin-right: 5px;
 `;
