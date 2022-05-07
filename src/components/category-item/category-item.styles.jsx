@@ -30,7 +30,7 @@ export const Body = styled.div`
     font-weight: lighter;
     font-size: 16px;
   }
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 600px) {
     h2 {
       font-size: 20px;
     }
