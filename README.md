@@ -7,7 +7,8 @@ Full Stack E-Commerce App built with React, using Firebase, deployed with Netlif
 
 ## Features
 * Mobile Responsiveness
-* User Authentication
+* User Authentication persist through sessions
+* Cart Items persist through sessions
 
 ## Currently in development
 * Component Testing
