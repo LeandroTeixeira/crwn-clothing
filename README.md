@@ -11,9 +11,9 @@ Full Stack E-Commerce App built with React, using Firebase, deployed with Netlif
 * Hooks
 * Styled-Components
 * Firebase API
+* Mobile Responsiveness
 
 ## Currently in development
-* Mobile Responsiveness
 * Component Testing
 
 ## To be implemented

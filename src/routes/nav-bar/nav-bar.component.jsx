@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import {
   NavigationContainer, LogoContainer, NavLink, NavLinksContainer,
 } from './nav-bar.styles';
