@@ -12,10 +12,10 @@ Full Stack E-Commerce App built with React, using Firebase, deployed with Netlif
 
 ## Currently in development
 * Component Testing
+* PWA Capabilities
 
 ## To be implemented
 * Payment Handling with Stripe (_on hold: No version compatible with React 18.0.0_)
-* PWA Capabilities
 * Conversion from Context API to Redux 
 * Conversion from JavaScript to TypeScript
 
