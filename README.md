@@ -5,13 +5,9 @@
 ## Description
 Full Stack E-Commerce App built with React, using Firebase, deployed with Netlify. Currently hosted at https://superb-meerkat-5c8e8c.netlify.app/
 
-## Technologies Used
-* React
-* Context API
-* Hooks
-* Styled-Components
-* Firebase API
+## Features
 * Mobile Responsiveness
+* User Authentication
 
 ## Currently in development
 * Component Testing
@@ -22,3 +18,9 @@ Full Stack E-Commerce App built with React, using Firebase, deployed with Netlif
 * Conversion from Context API to Redux 
 * Conversion from JavaScript to TypeScript
 
+## Tecnologies Used
+* React
+* Context API
+* Hooks
+* Styled-Components
+* Firebase API
