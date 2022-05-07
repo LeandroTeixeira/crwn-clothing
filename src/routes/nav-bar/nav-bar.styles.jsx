@@ -10,6 +10,7 @@ export const NavigationContainer = styled.div`
   @media screen and (max-width: 800px) {
     height: 40px;
     margin-bottom: 20px;
+    font-size: 14px;
   }
   @media screen and (max-width: 400px) {
     height: 30px;
@@ -36,7 +37,7 @@ export const NavLinksContainer = styled.div`
   align-items: center;
   justify-content: flex-end;
   @media screen and (max-width: 800px) {
-    width: 70%;
+    width: 80%;
     padding-top: 15px;
   }
 `;

@@ -7,6 +7,10 @@ const shrinkLabelStyles = css`
   top: -14px;
   font-size: 12px;
   color: ${mainColor};
+  @media screen and (max-width: 600px) {
+    opacity: 0.4;
+    font-weight: normal;
+  }
 `;
 
 export const FormInputLabel = styled.label`
@@ -19,6 +23,10 @@ export const FormInputLabel = styled.label`
   top: 10px;
   transition: 300ms ease all;
   ${({ shrink }) => shrink && shrinkLabelStyles};
+  @media screen and (max-width: 600px) {
+    font-weight: bold;
+    opacity: 0.55;
+  }
 `;
 
 export const Input = styled.input`
@@ -39,6 +47,14 @@ export const Input = styled.input`
   &:focus ~ ${FormInputLabel} {
     ${shrinkLabelStyles};
   }
+  @media screen and (max-width: 800px) {
+    margin: -10px 0;
+    padding: 8px 8px 8px 4px;
+  }
+  @media screen and (max-width: 600px) {
+    margin: -18px 0;
+    padding: 8px 8px 8px 4px;
+  }
 `;
 
 export const Group = styled.div`
@@ -49,5 +65,6 @@ export const Group = styled.div`
   }
   @media screen and (max-width: 800px) {
     height: 75px;
+    margin: 0px 0;
   }
 `;

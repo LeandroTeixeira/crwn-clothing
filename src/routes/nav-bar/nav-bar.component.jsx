@@ -25,7 +25,6 @@ export default function NavBar() {
         </LogoContainer>
         <NavLinksContainer>
           <NavLink to="/shop">SHOP</NavLink>
-
           {currentUser ? (
             <NavLink to="/" aria-hidden="true" onClick={handleSignOut}>
               SIGN OUT

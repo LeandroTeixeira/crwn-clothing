@@ -7,26 +7,52 @@ export const SignUpContainer = styled.div`
   h2 {
     margin: 10px 0;
   }
-  @media screen and (max-width: 800px) {
-    width: 90%;
+  @media screen and (max-width: 1050px) {
+    width: 95%;
     margin: auto;
     h2,
     span {
       margin: auto;
     }
     h2 {
-      font-size: 2em;
+      font-size: 1.65em;
+      text-align: center;
     }
     span {
-      font-size: 1.5em;
+      font-size: 1.05em;
+      text-align: center;
     }
     button {
       width: 100%;
-      height: 60px;
-      padding-top: 5px;
       font-size: 20px;
     }
   }
+
+  @media screen and (max-width: 800px) {
+    width: 95%;
+    margin: auto;
+    h2,
+    span {
+      margin: auto;
+    }
+    h2 {
+      font-size: 1.5em;
+      text-align: center;
+    }
+    span {
+      font-size: 0.9em;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    button {
+      width: 100%;
+      font-size: 20px;
+    }
+    form {
+      margin: 25px 0px;
+    }
+  }
+  
 `;
 
 export const Message = styled.div`
@@ -35,10 +61,15 @@ export const Message = styled.div`
   font-weight: 550;
   text-align: center;
   font-size: 0.9em;
+  @media screen and (max-width: 1050px) {
+    font-size: 1em;
+    font-weight: 750;
+  }
   @media screen and (max-width: 800px) {
-    font-size: 1.2em;
-    font-weight: 650;
-   
+    margin-top: -15px;
+  }
+  @media screen and (max-width: 600px) {
+    margin-top: -25px;
   }
 `;
 
