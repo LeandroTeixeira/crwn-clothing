@@ -4,7 +4,9 @@ import { BaseButton, GoogleSignInButton, InvertedButton } from '../button/button
 export const CartDropdownContainer = styled.div`
   position: absolute;
   width: 270px;
+  max-width: 60%;
   height: 340px;
+  max-height: 35%;
   display: flex;
   flex-direction: column;
   padding: 20px;
@@ -18,6 +20,26 @@ export const CartDropdownContainer = styled.div`
   ${InvertedButton},
   ${GoogleSignInButton} {
     margin-top: auto;
+  }
+  h2 {
+    font-size: 14px;
+  }
+
+  @media screen and (max-width: 800px) {
+    padding: 12px;
+    top: 8%;
+    right: 3%;
+    h2 {
+      text-align: center;
+      margin: 5px;
+    }
+    button {
+      font-size: 16px;
+    }
+  }
+  @media screen and (max-width: 600px) {
+    padding: 7px;
+    right: 5%;
   }
 `;
 

@@ -22,6 +22,7 @@ export const AddSub = styled.button`
     padding: 0px 4px;
     border: 1px solid black;
   }
+
 `;
 
 export const Del = styled.button`
@@ -39,6 +40,9 @@ export const ItemDetails = styled.div`
   align-items: flex-start;
   justify-content: center;
   padding: 10px 20px;
+  @media screen and (max-width: 800px) {
+    padding: 10px 5px;
+  }
 `;
 
 export const Name = styled.span`
@@ -47,6 +51,7 @@ export const Name = styled.span`
 
 export const Price = styled.span`
   font-size: 14px;
+
 `;
 
 // .cart-item-container {

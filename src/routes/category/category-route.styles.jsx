@@ -35,9 +35,10 @@ export const CategoryTitle = styled.h2`
   @media screen and (max-width: 800px) {
     font-size: 23px;
     margin-bottom: 20px;
+    text-align: center;
   }
   @media screen and (max-width: 650px) {
     font-size: 20px;
-    margin-bottom: 0px;
+    margin-bottom: 10px;
   }
 `;
