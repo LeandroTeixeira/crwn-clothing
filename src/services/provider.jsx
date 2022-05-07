@@ -16,8 +16,13 @@ let [currentUser, setCurrentUser] = [{}, (user) => { currentUser = user; }];
 
 // Data for Global Context
 let [dropdownIsOpen, setDropdownIsOpen] = [false, (value) => { dropdownIsOpen = value; }];
-let [cartItems, setCartItems] = [[], (items) => { cartItems = items; }];
+let [cartItems, setCart] = [[], (items) => { cartItems = items; }];
 let [total, setTotal] = [0, (tot) => { total = tot; }];
+
+const setCartItems = (items) => {
+  setCart(items);
+  localStorage.setItem('cart', JSON.stringify(items));
+};
 
 const toggleDropdown = () => { setDropdownIsOpen(!dropdownIsOpen); };
 
@@ -94,8 +99,16 @@ export default function Provider({ children }) {
 
   // Data for Global Context
   [dropdownIsOpen, setDropdownIsOpen] = useState(false);
-  [cartItems, setCartItems] = useState([]);
-  [total, setTotal] = useState(0);
+  [cartItems, setCart] = useState(() => {
+    const saved = localStorage.getItem('cart');
+    const initialValue = JSON.parse(saved);
+    return initialValue || [];
+  });
+
+  [total, setTotal] = useState(() => (cartItems.reduce(
+    (acc, current) => acc + current.qtd * current.price,
+    0,
+  )));
 
   const setGlobalContextData = () => ({
     ...globalData,
