@@ -3,9 +3,9 @@ import { number, string, shape } from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import {
   BackgroundImage, Body, CategoryContainer,
-} from './category-item.styles';
+} from './home-category-item.styles';
 
-export default function CategoryItem({ category: { id, imageUrl, title } }) {
+export default function HomeCategoryItem({ category: { id, imageUrl, title } }) {
   const navigate = useNavigate();
   const onNavigateHandler = () => navigate(`/shop/${title}`);
   return (
@@ -19,7 +19,7 @@ export default function CategoryItem({ category: { id, imageUrl, title } }) {
   );
 }
 
-CategoryItem.propTypes = {
+HomeCategoryItem.propTypes = {
   category: shape({
     id: number,
     imageUrl: string,

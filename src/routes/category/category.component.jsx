@@ -3,11 +3,11 @@ import { useParams } from 'react-router-dom';
 import {
   CategoryTitle,
   CategoryRouteContainer,
-} from './category-route.styles';
-import { ShopContext } from '../../services/contexts';
+} from './category.styles';
+import { ShopContext } from '../../services/persistence/contexts';
 import ProductCard from '../../components/product-card/product-card.component';
 
-export default function CategoryRoute() {
+export default function Category() {
   const { category } = useParams();
   const { categoriesMap } = useContext(ShopContext);
 

@@ -5,8 +5,8 @@ import {
 } from './nav-bar.styles';
 
 import { ReactComponent as CrownLogo } from '../../assets/crown.svg';
-import { GlobalContext, UserContext } from '../../services/contexts';
-import { signOutUser } from '../../services/firebase.utils';
+import { GlobalContext, UserContext } from '../../services/persistence/contexts';
+import { signOutUser } from '../../services/authentication/firebase.utils';
 import CartIcon from '../../components/cart-icon/cart-icon.component';
 import CartDropdown from '../../components/cart-dropdown/cart-dropdown.component';
 

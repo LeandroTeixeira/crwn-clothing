@@ -1,5 +1,5 @@
 import React, { Fragment, useContext } from 'react';
-import { ShopContext } from '../../services/contexts';
+import { ShopContext } from '../../services/persistence/contexts';
 import CategoryPreview from '../../components/category-preview/category-preview.component';
 
 export default function CategoriesPreview() {

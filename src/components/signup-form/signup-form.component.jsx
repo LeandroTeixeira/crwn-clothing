@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from '../../services/firebase.utils';
+import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from '../../services/authentication/firebase.utils';
 import FormInput from '../form-input/form-input.component';
 import Button, { BUTTON_TYPE_CLASSES } from '../button/button.component';
 import {

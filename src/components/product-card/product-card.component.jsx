@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { string } from 'prop-types';
 import Button, { BUTTON_TYPE_CLASSES } from '../button/button.component';
-import { GlobalContext } from '../../services/contexts';
+import { GlobalContext } from '../../services/persistence/contexts';
 import { currencyFormatter } from '../../services/utils';
 import {
   Footer, Name, Price, ProductCardContainer,

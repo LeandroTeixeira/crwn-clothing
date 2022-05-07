@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { GlobalContext } from '../../services/contexts';
+import { GlobalContext } from '../../services/persistence/contexts';
 import CheckoutItem from '../../components/checkout-item/checkout-item.component';
 import { currencyFormatter } from '../../services/utils';
 import {

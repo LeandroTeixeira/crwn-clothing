@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useContext } from 'react';
-import { GlobalContext } from '../../services/contexts';
+import { GlobalContext } from '../../services/persistence/contexts';
 import {
   CartItemContainer, ItemDetails, Name, Price, Del, AddSub,
 } from './cart-item.styles';

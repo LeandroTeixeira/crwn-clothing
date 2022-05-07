@@ -6,7 +6,7 @@ import {
 } from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Provider from './services/provider';
+import Provider from './services/persistence/provider';
 
 const container = document.getElementById('root');
 const root = createRoot(container);

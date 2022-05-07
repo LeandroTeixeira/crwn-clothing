@@ -3,13 +3,13 @@ import React, {
   useMemo, useState, useEffect,
 } from 'react';
 import { GlobalContext, UserContext, ShopContext } from './contexts';
-import globalData from './globalData';
+import globalData from '../data/globalData';
 import {
   createUserDocumentFromAuth,
   onAuthStateChangeListener,
   getCategoriesAndDocuments,
-} from './firebase.utils';
-import defaultCartItem from './utils';
+} from '../authentication/firebase.utils';
+import defaultCartItem from '../utils';
 
 // Data for User Context
 let [currentUser, setCurrentUser] = [{}, (user) => { currentUser = user; }];

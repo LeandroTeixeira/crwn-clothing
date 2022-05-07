@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useContext } from 'react';
-import { GlobalContext } from '../../services/contexts';
+import { GlobalContext } from '../../services/persistence/contexts';
 import { CartIconContainer, ItemCount, ShoppingIconComponent } from './cart-icon.styles';
 
 export default function CartIcon() {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {
   signInAuthUserWithEmailAndPassword, signInWithGooglePopup,
-} from '../../services/firebase.utils';
+} from '../../services/authentication/firebase.utils';
 import { ButtonsContainer, SignInContainer } from './signin-form.styles';
 import FormInput from '../form-input/form-input.component';
 import Button, { BUTTON_TYPE_CLASSES } from '../button/button.component';

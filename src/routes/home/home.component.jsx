@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
-import Category from '../../components/category/category.component';
-import { GlobalContext } from '../../services/contexts';
+import HomeCategories from '../../components/home-categories/home-categories.component';
+import { GlobalContext } from '../../services/persistence/contexts';
 
 function Home() {
   const { categories } = useContext(GlobalContext);
   return (
-    <Category categories={categories} />
+    <HomeCategories categories={categories} />
   );
 }
 

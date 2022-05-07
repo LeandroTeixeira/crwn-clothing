@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import Button, { BUTTON_TYPE_CLASSES } from '../button/button.component';
 import CartItem from '../cart-item/cart-item.component';
 import { CartDropdownContainer, CartItems, EmptyCart } from './cart-dropdown.styles';
-import { GlobalContext } from '../../services/contexts';
+import { GlobalContext } from '../../services/persistence/contexts';
 import { currencyFormatter } from '../../services/utils';
 
 export default function CartDropdown() {
