@@ -9,7 +9,7 @@ Full Stack E-Commerce App built with React, using Firebase, deployed with Netlif
 * Mobile Responsiveness :white_check_mark:
 * User Authentication persist through sessions :white_check_mark:
 * Cart Items persist through sessions :white_check_mark:
-* Payment Handling with Stripe
+* Payment Handling with Stripe :white_check_mark:
 
 ## Currently in development
 * Quality of Life improvements on Checkout Form
