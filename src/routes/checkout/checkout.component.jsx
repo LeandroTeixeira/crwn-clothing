@@ -5,6 +5,7 @@ import { currencyFormatter } from '../../services/utils';
 import {
   CheckoutContainer, CheckoutHeader, HeaderBlock, Total,
 } from './checkout.styles';
+import PaymentForm from '../../components/payment-form/payment-form.component';
 
 export default function Checkout() {
   const {
@@ -47,6 +48,7 @@ export default function Checkout() {
         {' '}
         {currencyFormatter(total)}
       </Total>
+      <PaymentForm />
     </CheckoutContainer>
   );
 }

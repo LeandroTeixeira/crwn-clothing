@@ -4,10 +4,13 @@ import { BrowserRouter } from 'react-router-dom';
 import {
   createRoot,
 } from 'react-dom/client';
+import { Elements } from '@stripe/react-stripe-js';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Provider from './services/persistence/provider';
+
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
+import stripePromise from './services/stripe/stripe.utils';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
@@ -15,7 +18,9 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Provider>
-        <App />
+        <Elements stripe={stripePromise}>
+          <App />
+        </Elements>
       </Provider>
     </BrowserRouter>
   </React.StrictMode>,

@@ -9,13 +9,15 @@ Full Stack E-Commerce App built with React, using Firebase, deployed with Netlif
 * Mobile Responsiveness :white_check_mark:
 * User Authentication persist through sessions :white_check_mark:
 * Cart Items persist through sessions :white_check_mark:
+* Payment Handling with Stripe
 
 ## Currently in development
-* Component Testing
+* Quality of Life improvements on Checkout Form
 * PWA Capabilities
   * Manifest :heavy_check_mark:
   * Service Worker :x:
-* Payment Handling with Stripe :bangbang: (_on hold: No version compatible with React 18.0.0_)
+* Component Testing
+
 
 ## To be implemented
 * Conversion from Context API to Redux 
@@ -27,4 +29,5 @@ Full Stack E-Commerce App built with React, using Firebase, deployed with Netlif
 * Hooks
 * Styled-Components
 * Firebase API 
+* Stripe API
 * Sass (_swapped for Styled-Components after commit 0751cc5_)
